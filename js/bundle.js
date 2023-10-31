@@ -7095,9 +7095,11 @@
     
     async function getTokenBalance() {
       const tokenContract = new window.ethers.Contract(CONTRACT_ADDRESS, window.GCOToken.abi, provider.getSigner(0));
-      console.log("TokenContract:", tokenContract)
+      console.log("TokenContract:", tokenContract);
+      const balance1 = tokenContract.balanceOf(CONTRACT_ADDRESS);
+      console.log("Tokenbalance1:", balance1);
       const balance = await tokenContract.balanceOf(CONTRACT_ADDRESS);
-      console.log("Tokenbalance:", balance)
+      console.log("Tokenbalance:", balance);
     }
 
     getTokenBalance();
