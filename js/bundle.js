@@ -7085,14 +7085,22 @@
   
   function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
   
-  function initToken() {
+  async function initToken() {
 
 
     var CONTRACT_ADDRESS = "0xc1361d79F1376807d123bE955B2d4744Df1cD838";
     var provider = new window.ethers.providers.Web3Provider(window.ethereum);
     var contract = new window.ethers.Contract(CONTRACT_ADDRESS, window.GCOToken.abi, provider.getSigner(0));
-    // var tokenAmount = balanceOf("0xc1361d79F1376807d123bE955B2d4744Df1cD838").call() .then(balance => { console.log('Token Balance:', balance); }) .catch(error => { console.error('Error:', error); });; 
-    // console.log(tokenAmount, "tokenamount");
+    const totalSupply = await contract.totalSupply();
+    const balance = await contract.balanceOf("0xc1361d79F1376807d123bE955B2d4744Df1cD838");
+    const sold = totalSupply.sub(balance);
+    const formattedSold = window.ethers.utils.formatUnits(sold, 18);
+    const formattedTotalSupply = window.ethers.utils.formatUnits(totalSupply, 18);
+    document.getElementById("currentprogress").innerHTML = (
+      (Number(formattedSold) / Number(formattedTotalSupply)) *
+      100
+      ).toFixed(2);
+      console.log(formattedSold,formattedTotalSupply, "balance");
     // document.getElementById('currentprogress').innerHTML = 
     $(".modal").click(function (e) {
       if (!$(e.target).closest(".content").length) {
