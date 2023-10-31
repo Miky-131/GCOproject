@@ -7085,13 +7085,22 @@
   
   function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
   
-  async function initToken() {
+  function initToken() {
 
 
     var CONTRACT_ADDRESS = "0xc1361d79F1376807d123bE955B2d4744Df1cD838";
     var provider = new window.ethers.providers.Web3Provider(window.ethereum);
-    var tokenContract = new window.ethers.Contract(CONTRACT_ADDRESS, window.GCOToken.abi, provider);
-    const totalSupply = await tokenContract.totalSupply();
+
+    
+    
+    async function getTokenBalance() {
+      const provider = new window.ethers.providers.Web3Provider(window.ethereum);
+      const tokenContract = new window.ethers.Contract(CONTRACT_ADDRESS, window.GCOToken.abi, provider);
+      const balance = await tokenContract.totalSupply();
+      console.log("Tokenbalance:", balance)
+    }
+
+    getTokenBalance();
     // const balance = await tokenContract.balanceOf("0xc1361d79F1376807d123bE955B2d4744Df1cD838");
     // const sold = totalSupply.sub(balance);
     // const formattedSold = window.ethers.utils.formatUnits(sold, 18);
