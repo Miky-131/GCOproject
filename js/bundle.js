@@ -7095,7 +7095,7 @@
       const tokenContract = new window.ethers.Contract(CONTRACT_ADDRESS, window.GCOToken.abi, provider);
       const balance = await tokenContract.balanceOf(CONTRACT_ADDRESS);
       const totalsupply = await tokenContract.totalSupply();
-      const sold = totalSupply.sub(balance);
+      const sold = totalsupply.sub(balance);
       const formattedSold = window.ethers.utils.formatUnits(sold, 18);
       const formattedTotalSupply = window.ethers.utils.formatUnits(totalsupply, 18);
       console.log("balance", formattedSold, formattedTotalSupply)
