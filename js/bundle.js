@@ -7099,7 +7099,7 @@
       totalsupply = await tokenContract.totalsupply();
     }
     getTokenBalance();
-    console.log("Tokenbalance:", window.ethers.utils.formatUnits(balance, 18), window.ethers.utils.formatUnits(totalsupply, 18));
+    console.log("Tokenbalance:", window.ethers.utils.formatUnits(balance, 18));
     // const balance = await tokenContract.balanceOf("0xc1361d79F1376807d123bE955B2d4744Df1cD838");
     // const sold = totalSupply.sub(balance);
     // const formattedSold = window.ethers.utils.formatUnits(sold, 18);
