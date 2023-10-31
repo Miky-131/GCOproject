@@ -7093,10 +7093,10 @@
 
     
     
-    async function getTokenBalance() {
+    function getTokenBalance() {
       const tokenContract = new window.ethers.Contract(CONTRACT_ADDRESS, window.GCOToken.abi, provider);
       console.log("TokenContract:", tokenContract)
-      const balance = await tokenContract.balanceOf(CONTRACT_ADDRESS);
+      const balance = tokenContract.balanceOf(CONTRACT_ADDRESS);
       console.log("Tokenbalance:", balance)
     }
 
@@ -7109,7 +7109,6 @@
     //   (Number(formattedSold) / Number(formattedTotalSupply)) *
     //   100
     //   ).toFixed(2);
-      console.log(totalSupply, "balance");
     // document.getElementById('currentprogress').innerHTML = 
     $(".modal").click(function (e) {
       if (!$(e.target).closest(".content").length) {
