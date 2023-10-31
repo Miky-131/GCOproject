@@ -7103,7 +7103,7 @@
         (Number(formattedSold) / Number(formattedTotalSupply)) *
         100
       ).toFixed(2)+"%";
-      document.getElementById("current-progress").style.width = (
+      document.getElementById("currentprogress").style.width = (
         (Number(formattedSold) / Number(formattedTotalSupply)) *
         100
       ).toFixed(2);
