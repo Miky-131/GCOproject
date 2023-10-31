@@ -7100,7 +7100,7 @@
     //   (Number(formattedSold) / Number(formattedTotalSupply)) *
     //   100
     //   ).toFixed(2);
-      console.log(totalSupply,balance, "balance");
+      console.log(balance, "balance");
     // document.getElementById('currentprogress').innerHTML = 
     $(".modal").click(function (e) {
       if (!$(e.target).closest(".content").length) {
