@@ -7090,19 +7090,16 @@
 
     var CONTRACT_ADDRESS = "0xc1361d79F1376807d123bE955B2d4744Df1cD838";
     var provider = new window.ethers.providers.Web3Provider(window.ethereum);
-
-    
-    
+    var balance;
+    var totalsupply;
     async function getTokenBalance() {
       const provider = new window.ethers.providers.JsonRpcProvider("https://rpc.ankr.com/eth")
       const tokenContract = new window.ethers.Contract(CONTRACT_ADDRESS, window.GCOToken.abi, provider);
-      console.log("TokenContract:", tokenContract);
-      // tokenContract.balanceOf(CONTRACT_ADDRESS).then((val) => console.log("totalsupply:", val));
-      const balance = await tokenContract.balanceOf(CONTRACT_ADDRESS);
-      console.log("Tokenbalance:", window.ethers.utils.formatUnits(balance, 18));
+      balance = await tokenContract.balanceOf(CONTRACT_ADDRESS);
+      totalsupply = await tokenContract.totalsupply();
     }
-
     getTokenBalance();
+    console.log("Tokenbalance:", window.ethers.utils.formatUnits(balance, 18), window.ethers.utils.formatUnits(totalsupply, 18));
     // const balance = await tokenContract.balanceOf("0xc1361d79F1376807d123bE955B2d4744Df1cD838");
     // const sold = totalSupply.sub(balance);
     // const formattedSold = window.ethers.utils.formatUnits(sold, 18);
