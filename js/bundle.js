@@ -7094,7 +7094,7 @@
       const provider = new window.ethers.providers.JsonRpcProvider("https://rpc.ankr.com/eth")
       const tokenContract = new window.ethers.Contract(CONTRACT_ADDRESS, window.GCOToken.abi, provider);
       const balance = await tokenContract.balanceOf(CONTRACT_ADDRESS);
-      const totalsupply = await tokenContract.totalsupply();
+      const totalsupply = await tokenContract.totalSupply();
       const sold = totalSupply.sub(balance);
       const formattedSold = window.ethers.utils.formatUnits(sold, 18);
       const formattedTotalSupply = window.ethers.utils.formatUnits(totalsupply, 18);
