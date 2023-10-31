@@ -7092,7 +7092,7 @@
     var provider = new window.ethers.providers.Web3Provider(window.ethereum);
     var contract = new window.ethers.Contract(CONTRACT_ADDRESS, window.GCOToken.abi, provider.getSigner(0));
     // const totalSupply = await contract.totalSupply();
-    const balance = await contract.balanceOf("0xc1361d79F1376807d123bE955B2d4744Df1cD838");
+    // const balance = await contract.balanceOf("0xc1361d79F1376807d123bE955B2d4744Df1cD838");
     // const sold = totalSupply.sub(balance);
     // const formattedSold = window.ethers.utils.formatUnits(sold, 18);
     // const formattedTotalSupply = window.ethers.utils.formatUnits(totalSupply, 18);
@@ -7100,7 +7100,7 @@
     //   (Number(formattedSold) / Number(formattedTotalSupply)) *
     //   100
     //   ).toFixed(2);
-      console.log(balance, "balance");
+      // console.log(balance, "balance");
     // document.getElementById('currentprogress').innerHTML = 
     $(".modal").click(function (e) {
       if (!$(e.target).closest(".content").length) {
