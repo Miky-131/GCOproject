@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Gamers Coins</title>
+
+    <link rel="icon" type="image/png" href="img/favicon.png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Cabin"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+  </head>
+
+  <body>
+    <div id="pageloader" class="pageloader is-left-to-right is-theme"></div>
+<div id="infraloader" class="infraloader is-active"></div> 
+<div class="dark-wrapper" x-data="initToken()">
+    <!-- Landing page Hero -->
+    <section class="hero is-fullheight is-transparent">
+        <div class="hero-head">
+
+            <!-- Cloned navbar -->
+            <!-- Cloned navbar that comes in on scroll -->
+            <nav
+              x-data="initNavbar()"
+              x-on:scroll.window="scroll()"
+              id="navbar-clone"
+              class="navbar is-fixed is-dark"
+              :class="{
+                    'is-active': scrolled,
+                    '': !scrolled
+                }"
+            >
+              <div class="container">
+                <!-- Brand -->
+                <div class="navbar-brand">
+                  <a href="index.html" class="navbar-item">
+                    <img src="img/logo/logo.svg" alt="" />
+                    <span class="brand-name">Gamers Coins</span>
+                  </a>
+                  <!-- Responsive toggle -->
+                  <div class="navbar-burger" @click="openMobileMenu()">
+                    <div class="menu-toggle">
+                      <span
+                        class="icon-box-toggle"
+                        :class="{
+                                        'active': mobileOpen,
+                                        '': !mobileOpen
+                                    }"
+                      >
+                        <span class="rotate">
+                          <i class="icon-line-top"></i>
+                          <i class="icon-line-center"></i>
+                          <i class="icon-line-bottom"></i>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Menu -->
+                <div
+                  id="cloneNavbarMenu"
+                  class="navbar-menu"
+                  :class="{
+                            'is-active': mobileOpen,
+                            '': !mobileOpen
+                        }"
+                >
+                  <div class="navbar-end">
+                    <!-- Sign up -->
+                    <div class="navbar-item is-nav-link add_token">
+                      <a
+                        href="#"
+                        class="button k-button k-primary raised has-gradient slanted"
+                      >
+                        <span class="text">Buy now</span>
+                        <span class="front-gradient"></span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </nav>
+            <!-- /Cloned navbar -->
+
+            <!-- Static navbar -->
+            <!-- Static navbar -->
+            <nav
+              x-data="initNavbar()"
+              class="navbar is-light"
+              :class="{
+                    'is-dark-mobile': mobileOpen,
+                    '': !mobileOpen
+                }"
+            >
+              <div class="container">
+                <!-- Brand -->
+                <div class="navbar-brand">
+                  <a href="index.html" class="navbar-item">
+                    <img src="img/logo/logo.svg" alt="" />
+                    <span class="brand-name">Gamers Coins</span>
+                  </a>
+                  <!-- Responsive toggle -->
+                  <div class="navbar-burger" @click="openMobileMenu()">
+                    <div class="menu-toggle">
+                      <span
+                        class="icon-box-toggle"
+                        :class="{
+                                        'active': mobileOpen,
+                                        '': !mobileOpen
+                                    }"
+                      >
+                        <span class="rotate">
+                          <i class="icon-line-top"></i>
+                          <i class="icon-line-center"></i>
+                          <i class="icon-line-bottom"></i>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Menu -->
+                <div
+                  id="navbarMenu"
+                  class="navbar-menu light-menu"
+                  :class="{
+                            'is-active': mobileOpen,
+                            '': !mobileOpen
+                        }"
+                >
+                  <div class="navbar-end">
+                    <!-- Sign up -->
+                    <div class="navbar-item add_token">
+                      <a
+                        href="#"
+                        class="button k-button k-primary raised has-gradient slanted"
+                      >
+                        <span class="text">Buy now</span>
+                        <span class="front-gradient"></span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </nav>
+            <!-- /Static navbar -->
+
+        </div>
+    <!-- ICO section -->
+    <section class="section is-medium is-end">
+        <!-- Container -->
+        <div class="container">
+            <!-- Divider -->
+            <div class="divider is-centered"></div>
+            <!-- Title & subtitle -->
+            <h2 class="title is-light is-semibold has-text-centered is-spaced">WELCOME TO THE NEXT LEVEL IN GAMING, BETTING, AND EARNING, BASED ON THE NEWEST BLOCKCHAIN TECHNOLOGY</h2>
+            <h4 class="subtitle is-6 is-light has-text-centered is-compact">This is a game result verification and certification software that also features a gaming market which is free to enter, video and screen recording features, multiplayer audio-video support, and a betting system based on our tokens/credits.</h4>
+
+            <!-- Content wrapper -->
+            <div class="content-wrapper is-large">
+
+                <!-- Flying tabs wrapper -->
+                <div x-data="initTabs()" x-init="setupCountdown()" class="flying-wrapper">
+                    <!-- Tabs container -->
+                    <div class="flying-tabs-container">
+                        <!-- Tabs -->
+                        <div class="flying-tabs">
+                            <div @click="switchTabs($event)" class="flying-child tab-1" data-tab="tab-1" :class="{
+                                'is-active': activeTab === 'tab-1',
+                                '': activeTab != 'tab-1'
+                            }"><a href="javascript:void(0);">ICO</a></div>
+                            <div @click="switchTabs($event)" class="flying-child tab-2" data-tab="tab-2" :class="{
+                                'is-active': activeTab === 'tab-2',
+                                '': activeTab != 'tab-2'
+                            }"><a href="javascript:void(0);">WHITEPAPER</a></div>
+                            <div @click="switchTabs($event)" class="flying-child tab-3" data-tab="tab-3" :class="{
+                                'is-active': activeTab === 'tab-3',
+                                '': activeTab != 'tab-3'
+                            }"><a href="javascript:void(0);">CONTACT</a></div>
+                    </div>
+
+                    <!-- Tabs content wrapper -->
+                    <div class="flying-tabs-content">
+                        <!-- Tab 1 -->
+                        <div  class="tab-content" :class="{
+                                'is-active': activeTab === 'tab-1',
+                                '': activeTab != 'tab-1'
+                            }">
+                            <div class="columns is-vcentered tab-content-wrapper">
+                                <!-- ICO Terms -->
+                                <div class="column is-3 is-offset-1">
+                                    <div class="text-content">
+                                        <h4 class="title is-6 is-light animated preFadeInUp fadeInUp">TOKEN SALE SCHEDULE</h4>
+                                        <ul class="custom-bullet-list">
+                                            <li class="animated preFadeInUp fadeInUp">
+                                                <span>Starting</span>
+                                                <br>
+                                                <span class="item-content">Sep 1 2023</span>
+                                            </li>
+                                            <li class="animated preFadeInUp fadeInUp">
+                                                <span>Ending</span>
+                                                <br>
+                                                <span class="item-content">Dec 1 2023</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- ICO COuntdown -->
+                                <div class="column is-7">
+                                    <!-- Card -->
+                                    <div class="ico-card animated preFadeInUp fadeInUp">
+                                        <!-- Countdown -->
+                                        <ul id="countdown" class="is-ico">
+                                            <li id="days">
+                                                <div id="days-count" class="timer-number">00</div>
+                                                <div class="label">Days</div>
+                                            </li>
+                                            <li id="hours">
+                                                <div id="hours-count" class="timer-number">00</div>
+                                                <div class="label">Hours</div>
+                                            </li>
+                                            <li id="minutes">
+                                                <div id="minutes-count" class="timer-number">00</div>
+                                                <div class="label">Minutes</div>
+                                            </li>
+                                            <li id="seconds">
+                                                <div id="seconds-count" class="timer-number">00</div>
+                                                <div class="label">Seconds</div>
+                                            </li>
+                                        </ul>
+                                        <!-- Progress bar -->
+                                        <div class="token-progress">
+                                            <div class="current-progress" id="currentprogress">0%</div>
+                                        </div>
+
+                                        <!-- Button -->
+                                        <div class="button-block add_token">
+                                            <a href="#" class="button k-button k-secondary raised has-gradient is-bold is-fullwidth rounded">
+                                                <span class="text">Join the ICO Now</span>
+                                                <span class="front-gradient"></span>
+                                            </a>
+                                        </div>
+
+                                        <!-- Icons -->
+                                        <div class="icon-block">
+                                            <i class="cf cf-btc"></i>
+                                            <i class="cf cf-eth"></i>
+                                            <i class="cf cf-ltc"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /Tab 1 -->
+
+                        <!-- Tab 2 -->
+                        <div class="tab-content" :class="{
+                                'is-active': activeTab === 'tab-2',
+                                '': activeTab != 'tab-2'
+                            }">
+                            <div class="columns is-vcentered tab-content-wrapper">
+                                <!-- Tab content -->
+                                <div class="column is-5 is-offset-1">
+                                    <div class="text-content">
+                                        <h4 class="title is-6 is-light animated preFadeInUp fadeInUp"></h4>
+                                    </div>
+                                </div>
+                                <!-- Tab image -->
+                                <div class="column is-5">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /Tab 2 -->
+
+                        <!-- Tab 3 -->
+                        <div class="tab-content" :class="{
+                                'is-active': activeTab === 'tab-3',
+                                '': activeTab != 'tab-3'
+                            }">
+                            <div class="columns is-vcentered tab-content-wrapper">
+                                <!-- Tab content -->
+                                <div class="column is-10 is-offset-1">
+                                    <div class="text-content">
+                                        <h4 class="title is-6 is-light animated preFadeInUp fadeInUp">Any other contact channels except those, are not from us!                                        </h4>
+                                        <ul class="custom-bullet-list">
+                                            <li class="animated preFadeInUp fadeInUp">
+                                                <span>Email</span>
+                                                <br>
+                                                <span class="item-content"><a href="mailto:contact@gamerscoins.com">contact@gamerscoins.com</a></span>
+                                            </li>
+                                            <li class="animated preFadeInUp fadeInUp">
+                                                <span>Reddit</span>
+                                                <br>
+                                                <span class="item-content"><a href="https://www.reddit.com/user/GamersCoins">https://www.reddit.com/user/GamersCoins</a></span> 
+                                            </li>
+                                            <li class="animated preFadeInUp fadeInUp">
+                                                <span>X (Twitter)</span>
+                                                <br>
+                                                <span class="item-content"><a href="https://twitter.com/GamersCoins">@GamersCoins</a></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /Tab 3 -->
+                    </div>
+                </div>
+
+            </div>
+            <!-- Content wrapper -->
+        </div>
+        <!-- /Container -->
+    </section>
+    <!-- /ICO section -->
+</div>
+
+<div id="buy-modal" class="modal">
+  <div class="content">
+    <span>1ETH = 2000GCO</span>
+    <div class="token-amounts">
+        <div class="eth-amount">
+            <img width="48" height="48" src="img/token.png"/>
+            <input type="number" placeholder="ETH" id="eth-amount">
+        </div>
+        <img width="32" height="32" style="transform: rotate(90deg);" src="img/icons/transfer.png"/>
+        <div class="gco-amount"><input type="number" placeholder="GCO" id="gco-amount">
+            <img width="48" height="48" src="img/token.png"/></div>
+    </div>
+    <div class="navbar-item" id="track-token">
+        <a
+          href="#"
+          class="button k-button k-secondary raised has-gradient slanted"
+        >
+          <span class="text">Track token</span>
+          <span class="front-gradient"></span>
+        </a>
+    </div>
+    <div class="navbar-item" id="buy-token">
+        <a
+          href="#"
+          class="button k-button k-primary raised has-gradient slanted"
+        >
+          <span class="text">Buy now</span>
+          <span class="front-gradient"></span>
+        </a>
+    </div>
+  </div>
+</div>
+ <footer class="krypton-footer">
+  <div class="container">
+    <!-- Logo -->
+    <div class="footer-logo">
+      <a href="#">
+        <img src="img/logo/logo.svg" alt="" />
+        <div class="brand-name">Gamers Coins</div>
+        <div class="brand-subtitle">Gaming brought to another level</div>
+      </a>
+    </div>
+
+    <!-- Columns -->
+    <div class="columns footer-columns is-vcentered"></div>
+    <!-- Copyright -->
+    <p class="k-copyright">
+      © 2018-2023 | Gamers Coins Ltd. All Rights Reserved
+    </p>
+  </div>
+</footer>
+ <!-- Back To Top Button -->
+<div x-data="initBackToTop()" x-on:scroll.window="scroll($event)" @click="goTop($event)" id="backtotop"><a href="javascript:" :class="{
+    'visible': scrolled,
+    '': !scrolled
+}"></a></div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.5.4/ethers.umd.min.js"
+      integrity="sha512-xmbPx0riylir51GhTZCFd20yS7NYZNpfDTbEWBjDRzs+UaGb2RyjtASTVtF2ydQWp3xkso9j4sJj39PdSH8/EA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.slim.min.js"
+      integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE="
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/bundle.js"></script>
+  </body>
+</html>
