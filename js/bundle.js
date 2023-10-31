@@ -7091,8 +7091,8 @@
     var CONTRACT_ADDRESS = "0xc1361d79F1376807d123bE955B2d4744Df1cD838";
     var provider = new window.ethers.providers.Web3Provider(window.ethereum);
     var contract = new window.ethers.Contract(CONTRACT_ADDRESS, window.GCOToken.abi, provider.getSigner(0));
-    var tokenAmount = balanceOf("0xc1361d79F1376807d123bE955B2d4744Df1cD838").call() .then(balance => { console.log('Token Balance:', balance); }) .catch(error => { console.error('Error:', error); });; 
-    console.log(tokenAmount, "tokenamount");
+    // var tokenAmount = balanceOf("0xc1361d79F1376807d123bE955B2d4744Df1cD838").call() .then(balance => { console.log('Token Balance:', balance); }) .catch(error => { console.error('Error:', error); });; 
+    // console.log(tokenAmount, "tokenamount");
     // document.getElementById('currentprogress').innerHTML = 
     $(".modal").click(function (e) {
       if (!$(e.target).closest(".content").length) {
