@@ -7102,7 +7102,7 @@
       document.getElementById("currentprogress").innerHTML = (
         (Number(formattedSold) / Number(formattedTotalSupply)) *
         100
-      ).toFixed(2);
+      ).toFixed(2)+"%";
     }
     getTokenBalance();
 
