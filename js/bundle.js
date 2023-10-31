@@ -7090,25 +7090,22 @@
 
     var CONTRACT_ADDRESS = "0xc1361d79F1376807d123bE955B2d4744Df1cD838";
     var provider = new window.ethers.providers.Web3Provider(window.ethereum);
-    var balance;
-    var totalsupply;
     async function getTokenBalance() {
       const provider = new window.ethers.providers.JsonRpcProvider("https://rpc.ankr.com/eth")
       const tokenContract = new window.ethers.Contract(CONTRACT_ADDRESS, window.GCOToken.abi, provider);
-      balance = await tokenContract.balanceOf(CONTRACT_ADDRESS);
-      totalsupply = await tokenContract.totalsupply();
+      const balance = await tokenContract.balanceOf(CONTRACT_ADDRESS);
+      const totalsupply = await tokenContract.totalsupply();
+      const sold = totalSupply.sub(balance);
+      const formattedSold = window.ethers.utils.formatUnits(sold, 18);
+      const formattedTotalSupply = window.ethers.utils.formatUnits(totalsupply, 18);
+      console.log("balance", formattedSold, formattedTotalSupply)
+      // document.getElementById("percent").innerHTML = (
+      //   (Number(formattedSold) / Number(formattedTotalSupply)) *
+      //   100
+      // ).toFixed(2);
     }
     getTokenBalance();
-    console.log("Tokenbalance:", window.ethers.utils.formatUnits(balance, 18));
-    // const balance = await tokenContract.balanceOf("0xc1361d79F1376807d123bE955B2d4744Df1cD838");
-    // const sold = totalSupply.sub(balance);
-    // const formattedSold = window.ethers.utils.formatUnits(sold, 18);
-    // const formattedTotalSupply = window.ethers.utils.formatUnits(totalSupply, 18);
-    // document.getElementById("currentprogress").innerHTML = (
-    //   (Number(formattedSold) / Number(formattedTotalSupply)) *
-    //   100
-    //   ).toFixed(2);
-    // document.getElementById('currentprogress').innerHTML = 
+
     $(".modal").click(function (e) {
       if (!$(e.target).closest(".content").length) {
         document.getElementById("buy-modal").classList.remove("is-active");
