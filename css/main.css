@@ -3872,7 +3872,8 @@ a.tag:hover {
 }
 
 .title.is-6 {
-    font-size: 22px
+    font-size: 19px;
+    font-weight: 300;
 }
 
 .title.is-7 {
@@ -15909,7 +15910,9 @@ body {
 .flying-tabs-container .flying-tabs .flying-child {
     display: inline;
     text-align: center;
-    cursor: pointer
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: bold;
 }
 
 .flying-tabs-container .flying-tabs .flying-child:hover a {
@@ -16098,7 +16101,8 @@ body {
 }
 
 .tab-content .text-content .custom-bullet-list li span:first-child {
-    font-family: "Cabin", sans-serif
+    font-family: "Cabin", sans-serif;
+    font-size: 20px;
 }
 
 .tab-content .text-content .custom-bullet-list li span.item-content {
