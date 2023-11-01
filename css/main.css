@@ -14960,7 +14960,9 @@ body {
     overflow: hidden;
     padding: 0;
     width: 100%;
-    background: white
+    background: white;
+    text-align: center;
+    color: #572d03;
   }
 
 .current-progress {
@@ -14969,7 +14971,7 @@ body {
     background-color: #04AA6D;
     /* text-align: center; */
     line-height: 15px;
-    color: white;
+    color: #572d03;
   }  
   
 
