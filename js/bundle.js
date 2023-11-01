@@ -7102,7 +7102,7 @@
       document.getElementById("percent").innerHTML = "Progress"+(
         (Number(formattedSold) / Number(formattedTotalSupply)) *
         100
-      ).toFixed(4)+"%"+'<div class="current-progress" id="currentprogress"></div>';
+      ).toFixed(1)+"%"+'<div class="current-progress" id="currentprogress"></div>';
       document.getElementById("currentprogress").style.width = (
         (Number(formattedSold) / Number(formattedTotalSupply)) *
         100
