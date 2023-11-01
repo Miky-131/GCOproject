@@ -14963,6 +14963,7 @@ body {
     background: white;
     text-align: center;
     color: #572d03;
+    line-height: 15px;
   }
 
 .current-progress {
@@ -14972,6 +14973,7 @@ body {
     /* text-align: center; */
     line-height: 15px;
     color: #572d03;
+    margin-top: -15px;
   }  
   
 
