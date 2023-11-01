@@ -7099,7 +7099,7 @@
       const formattedSold = window.ethers.utils.formatUnits(sold, 18);
       const formattedTotalSupply = window.ethers.utils.formatUnits(totalsupply, 18);
       console.log("balance", formattedSold, formattedTotalSupply)
-      document.getElementById("currentprogress").innerHTML = (
+      document.getElementById("currentprogress").innerHTML = "Progress"+(
         (Number(formattedSold) / Number(formattedTotalSupply)) *
         100
       ).toFixed(2)+"%";

@@ -14964,10 +14964,10 @@ body {
   }
 
 .current-progress {
-    width: 50%;
+    width: 0%;
     height: 1rem;
     background-color: #04AA6D;
-    text-align: center;
+    /* text-align: center; */
     line-height: 15px;
     color: white;
   }  
